@@ -1,13 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "@/views/HomeView.vue";
 
 const routes = [
-  {
-    path: "/",
-    name: "home",
-    meta: { layout: "main" },
-    component: HomeView,
-  },
   {
     path: "/login",
     name: "login",
@@ -19,6 +12,12 @@ const routes = [
     name: "register",
     meta: { layout: "empty" },
     component: () => import("@/views/RegisterView.vue"),
+  },
+  {
+    path: "/",
+    name: "home",
+    meta: { layout: "main" },
+    component: () => import("@/views/HomeView.vue"),
   },
   {
     path: "/categories",
@@ -51,10 +50,10 @@ const routes = [
     component: () => import("@/views/RecordView.vue"),
   },
   {
-    path: "/detailrecord",
-    name: "detailrecord",
+    path: "/detail/:id",
+    name: "detail",
     meta: { layout: "main" },
-    component: () => import("@/views/DetailRecordView.vue"),
+    component: () => import("@/views/DetailView.vue"),
   },
 ];
 
