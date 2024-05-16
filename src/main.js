@@ -4,5 +4,6 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import "materialize-css/dist/js/materialize.min";
+import messagePlugin from "@/utils/messagePlugin";
 
-createApp(App).use(store).use(router).mount("#app");
+createApp(App).use(store).use(router).use(messagePlugin).mount("#app");
