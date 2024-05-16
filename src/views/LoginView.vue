@@ -1,16 +1,44 @@
 <template>
-  <form class="card auth-card">
+  <form class="card auth-card" @submit.prevent="submitHandler">
     <div class="card-content">
       <span class="card-title">Домашняя бухгалтерия</span>
       <div class="input-field">
-        <input id="email" type="text" class="validate" />
+        <input
+          id="email"
+          type="text"
+          v-model.trim="email"
+          :class="{
+            invalid: v$.email.$errors.length,
+          }"
+        />
         <label for="email">Email</label>
-        <small class="helper-text invalid">Email</small>
+        <small
+          class="helper-text invalid"
+          v-show="v$.email.$errors.length"
+          v-for="(error, index) of v$.email.$errors"
+          :key="index"
+        >
+          {{ error.$message }}
+        </small>
       </div>
       <div class="input-field">
-        <input id="password" type="password" class="validate" />
+        <input
+          id="password"
+          type="password"
+          v-model.trim="password"
+          :class="{
+            invalid: v$.password.$errors.length,
+          }"
+        />
         <label for="password">Пароль</label>
-        <small class="helper-text invalid">Password</small>
+        <small
+          class="helper-text invalid"
+          v-show="v$.password.$errors.length"
+          v-for="(error, index) of v$.password.$errors"
+          :key="index"
+        >
+          {{ error.$message }}
+        </small>
       </div>
     </div>
     <div class="card-action">
@@ -23,8 +51,46 @@
 
       <p class="center">
         Нет аккаунта?
-        <a href="/">Зарегистрироваться</a>
+        <router-link to="/register">Зарегистрироваться</router-link>
       </p>
     </div>
   </form>
 </template>
+
+<script>
+import { email, required, minLength } from "@vuelidate/validators";
+import { useVuelidate } from "@vuelidate/core";
+
+export default {
+  name: "login-view",
+  setup() {
+    return { v$: useVuelidate() };
+  },
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  validations() {
+    return {
+      email: { email, required },
+      password: { required, minLength: minLength(6) },
+    };
+  },
+  methods: {
+    submitHandler() {
+      if (this.v$.$invalid) {
+        this.v$.$touch();
+        return;
+      }
+      const formData = {
+        email: this.email,
+        password: this.password,
+      };
+      console.log(formData);
+      this.$router.push("/");
+    },
+  },
+};
+</script>
