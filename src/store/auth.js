@@ -32,9 +32,15 @@ export default {
         throw e;
       }
     },
-    async logout() {
+    async logout({ commit }) {
+      commit("clearInfo");
       const auth = getAuth();
       await signOut(auth);
+    },
+    async getUserId() {
+      const auth = getAuth();
+      const user = auth.currentUser;
+      return user ? user.uid : null;
     },
   },
 };

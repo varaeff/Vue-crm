@@ -1,5 +1,7 @@
 import { createStore } from "vuex";
 import auth from "./auth";
+import info from "./info";
+import fetchCurrency from "@/utils/fetchCurrency";
 
 export default createStore({
   state: {
@@ -16,7 +18,11 @@ export default createStore({
       state.error = null;
     },
   },
+  actions: {
+    fetchCurrency,
+  },
   modules: {
     auth,
+    info,
   },
 });
