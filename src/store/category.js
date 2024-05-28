@@ -42,7 +42,6 @@ export default {
       try {
         const database = getDatabase();
         const uid = await dispatch("getUserId");
-        // child(ref(database), `users/${uid}/categories`)
         const updates = {};
         updates[`users/${uid}/categories/${id}`] = {
           name,
