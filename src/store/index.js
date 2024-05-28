@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 import auth from "./auth";
 import info from "./info";
+import category from "./category";
 import fetchCurrency from "@/utils/fetchCurrency";
 
 export default createStore({
@@ -24,5 +25,6 @@ export default createStore({
   modules: {
     auth,
     info,
+    category,
   },
 });

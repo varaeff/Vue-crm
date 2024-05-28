@@ -1,6 +1,6 @@
 <template>
   <div>
-    <loader-component v-if="loading" />
+    <Loader v-if="loading" />
     <div v-else class="app-main-layout">
       <NavbarComponent @hide="isOpen = !isOpen" />
       <SidebarComponent :class="{ open: isOpen }" />
