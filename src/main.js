@@ -10,6 +10,8 @@ import LoaderComponent from "./components/app/LoaderComponent.vue";
 import "./registerServiceWorker";
 import "materialize-css/dist/js/materialize.min";
 
+import tooltipDirective from "@/directives/tooltip.directive";
+
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import "firebase/database";
@@ -36,6 +38,7 @@ onAuthStateChanged(auth, () => {
       .use(router)
       .use(messagePlugin)
       .component("Loader", LoaderComponent)
+      .directive("tooltip", tooltipDirective)
       .mount("#app");
   }
 });
