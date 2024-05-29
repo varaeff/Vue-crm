@@ -5,7 +5,7 @@
         <h4>Создать</h4>
       </div>
 
-      <form @submit.prevent="submitHandler">
+      <form id="form" @submit.prevent="submitHandler">
         <div class="input-field">
           <input
             id="name"

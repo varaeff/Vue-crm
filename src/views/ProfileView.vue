@@ -4,7 +4,7 @@
       <h3>Профиль</h3>
     </div>
 
-    <form class="form">
+    <form id="form" class="form">
       <div class="input-field">
         <input id="description" type="text" />
         <label for="description">Имя</label>

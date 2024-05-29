@@ -3,6 +3,7 @@ import auth from "./auth";
 import info from "./info";
 import category from "./category";
 import fetchCurrency from "@/utils/fetchCurrency";
+import record from "./record";
 
 export default createStore({
   state: {
@@ -26,5 +27,6 @@ export default createStore({
     auth,
     info,
     category,
+    record,
   },
 });
