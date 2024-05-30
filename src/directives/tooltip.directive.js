@@ -1,7 +1,7 @@
 export default {
   mounted(el, binding) {
     // eslint-disable-next-line no-undef
-    M.Tooltip.init(el, { html: binding.value });
+    M.Tooltip.init(el, { html: binding.value, position: "left" });
   },
   unmounted(el) {
     // eslint-disable-next-line no-undef
