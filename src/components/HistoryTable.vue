@@ -13,7 +13,7 @@
 
     <tbody>
       <tr v-for="(rec, index) of records" :key="rec.id">
-        <td>{{ index + 1 }}</td>
+        <td>{{ index + 1 + prevRecords }}</td>
         <td>{{ rec.amount }}₽</td>
         <td>{{ rec.date.split("T")[0] }}</td>
         <td>{{ rec.categoryName }}</td>
@@ -44,6 +44,7 @@ export default {
       requred: true,
       type: Array,
     },
+    prevRecords: Number,
   },
 };
 </script>

@@ -6,6 +6,7 @@ import store from "./store";
 
 import messagePlugin from "@/utils/messagePlugin";
 import LoaderComponent from "./components/app/LoaderComponent.vue";
+import Paginate from "vuejs-paginate-next";
 
 import "./registerServiceWorker";
 import "materialize-css/dist/js/materialize.min";
@@ -38,6 +39,7 @@ onAuthStateChanged(auth, () => {
       .use(router)
       .use(messagePlugin)
       .component("Loader", LoaderComponent)
+      .component("Paginate", Paginate)
       .directive("tooltip", tooltipDirective)
       .mount("#app");
   }

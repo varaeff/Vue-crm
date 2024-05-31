@@ -102,7 +102,7 @@ export default {
     description: "",
   }),
   async mounted() {
-    this.categories = await this.$store.dispatch("fetchCathegiries");
+    this.categories = await this.$store.dispatch("fetchCathegories");
     this.loading = false;
 
     if (this.categories.length) {

@@ -2,7 +2,7 @@ import { getDatabase, ref, push, child, update, get } from "firebase/database";
 
 export default {
   actions: {
-    async fetchCathegiries({ commit, dispatch }) {
+    async fetchCathegories({ commit, dispatch }) {
       try {
         const database = getDatabase();
         const uid = await dispatch("getUserId");
@@ -13,6 +13,20 @@ export default {
           ...categories[key],
           id: key,
         }));
+      } catch (e) {
+        commit("setError", e);
+        throw e;
+      }
+    },
+    async fetchCathegoryById({ commit, dispatch }, id) {
+      try {
+        const database = getDatabase();
+        const uid = await dispatch("getUserId");
+        const category =
+          (
+            await get(child(ref(database), `users/${uid}/categories/${id}`))
+          ).val() || {};
+        return { ...category, id };
       } catch (e) {
         commit("setError", e);
         throw e;

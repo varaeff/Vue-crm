@@ -30,7 +30,7 @@ export default {
     updateCount: 0,
   }),
   async mounted() {
-    this.categories = await this.$store.dispatch("fetchCathegiries");
+    this.categories = await this.$store.dispatch("fetchCathegories");
     this.loading = false;
   },
   methods: {
