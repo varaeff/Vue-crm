@@ -49,7 +49,7 @@
             invalid: v$.name.$errors.length,
           }"
         />
-        <label for="name">Имя</label>
+        <label for="name">{{ $localize("name") }}</label>
         <small
           class="helper-text invalid"
           v-show="v$.name.$errors.length"

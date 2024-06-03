@@ -18,30 +18,32 @@
 
 <script>
 export default {
-  data: () => ({
-    links: [
-      {
-        title: "Счет",
-        url: "/",
-        exact: true,
-      },
-      {
-        title: "История",
-        url: "/history",
-      },
-      {
-        title: "Планирование",
-        url: "/planning",
-      },
-      {
-        title: "Новая запись",
-        url: "/record",
-      },
-      {
-        title: "Категории",
-        url: "/categories",
-      },
-    ],
-  }),
+  data() {
+    return {
+      links: [
+        {
+          title: this.$localize("AccountTitle"),
+          url: "/",
+          exact: true,
+        },
+        {
+          title: this.$localize("HistoryTitle"),
+          url: "/history",
+        },
+        {
+          title: this.$localize("PlanningTitle"),
+          url: "/planning",
+        },
+        {
+          title: this.$localize("NewRecordTitle"),
+          url: "/record",
+        },
+        {
+          title: this.$localize("CategoriesTitle"),
+          url: "/categories",
+        },
+      ],
+    };
+  },
 };
 </script>

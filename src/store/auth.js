@@ -25,6 +25,7 @@ export default {
         const uid = auth.currentUser.uid;
         await set(ref(database, `users/${uid}/info`), {
           bill: 10000,
+          locale: "ru-RU",
           name,
         });
       } catch (e) {

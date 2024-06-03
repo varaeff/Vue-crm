@@ -5,6 +5,7 @@ import router from "./router";
 import store from "./store";
 
 import messagePlugin from "@/utils/messagePlugin";
+import localize from "@/utils/localize";
 import LoaderComponent from "./components/app/LoaderComponent.vue";
 import Paginate from "vuejs-paginate-next";
 
@@ -40,7 +41,9 @@ onAuthStateChanged(auth, () => {
       .use(messagePlugin)
       .component("Loader", LoaderComponent)
       .component("Paginate", Paginate)
-      .directive("tooltip", tooltipDirective)
-      .mount("#app");
+      .directive("tooltip", tooltipDirective);
+
+    app.config.globalProperties.$localize = localize;
+    app.mount("#app");
   }
 });
