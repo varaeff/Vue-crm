@@ -2,7 +2,7 @@
   <ul class="sidenav app-sidenav">
     <router-link
       v-for="link in links"
-      :key="link.title"
+      :key="link.url"
       :to="link.url"
       :exact="link.exact"
       v-slot="{ href, isActive }"

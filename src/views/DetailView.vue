@@ -27,8 +27,13 @@
 </template>
 
 <script>
+import { useMeta } from "vue-meta";
+
 export default {
   name: "detail-view",
+  setup() {
+    useMeta({ title: "Detail" });
+  },
   data: () => ({
     record: null,
     category: null,

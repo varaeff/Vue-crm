@@ -45,9 +45,13 @@
 import { mapGetters } from "vuex";
 import { required, minLength } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
+import { useMeta } from "vue-meta";
 
 export default {
   setup() {
+    useMeta({
+      title: "Profile",
+    });
     return { v$: useVuelidate() };
   },
   data: () => ({

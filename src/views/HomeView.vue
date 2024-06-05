@@ -20,9 +20,13 @@
 <script>
 import HomeBill from "@/components/HomeBill.vue";
 import HomeCurrency from "@/components/HomeCurrency.vue";
+import { useMeta } from "vue-meta";
 
 export default {
   name: "home-view",
+  setup() {
+    useMeta({ title: "Home" });
+  },
   data: () => ({
     loading: true,
     currency: null,

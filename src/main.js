@@ -8,6 +8,7 @@ import messagePlugin from "@/utils/messagePlugin";
 import localize from "@/utils/localize";
 import LoaderComponent from "./components/app/LoaderComponent.vue";
 import Paginate from "vuejs-paginate-next";
+import { createMetaManager } from "vue-meta";
 
 import "./registerServiceWorker";
 import "materialize-css/dist/js/materialize.min";
@@ -39,6 +40,7 @@ onAuthStateChanged(auth, () => {
       .use(store)
       .use(router)
       .use(messagePlugin)
+      .use(createMetaManager())
       .component("Loader", LoaderComponent)
       .component("Paginate", Paginate)
       .directive("tooltip", tooltipDirective);

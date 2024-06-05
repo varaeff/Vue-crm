@@ -85,10 +85,14 @@
 <script>
 import { email, required, minLength } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
+import { useMeta } from "vue-meta";
 
 export default {
   name: "register-view",
   setup() {
+    useMeta({
+      title: "Register",
+    });
     return { v$: useVuelidate() };
   },
   data() {

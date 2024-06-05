@@ -62,10 +62,14 @@
 import { email, required, minLength } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
 import messages from "@/utils/messages";
+import { useMeta } from "vue-meta";
 
 export default {
   name: "login-view",
   setup() {
+    useMeta({
+      title: "Login",
+    });
     return { v$: useVuelidate() };
   },
   data() {

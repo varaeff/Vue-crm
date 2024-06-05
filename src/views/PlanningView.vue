@@ -29,9 +29,13 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { useMeta } from "vue-meta";
 
 export default {
   name: "planning-view",
+  setup() {
+    useMeta({ title: "Planning" });
+  },
   data: () => ({
     loading: true,
     categories: [],

@@ -1,4 +1,5 @@
 <template>
+  <metainfo />
   <component :is="layout">
     <router-view />
   </component>
@@ -7,8 +8,15 @@
 <script>
 import EmptyLayout from "./layouts/EmptyLayout.vue";
 import MainLayout from "./layouts/MainLayout.vue";
+import { useMeta } from "vue-meta";
 
 export default {
+  setup() {
+    useMeta({
+      title: "",
+      htmlAttrs: { lang: "en", amp: true },
+    });
+  },
   computed: {
     layout() {
       return (this.$route.meta.layout || "empty") + "-layout";

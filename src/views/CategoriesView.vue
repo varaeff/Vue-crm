@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>Категории</h3>
+      <h3>{{ $localize("CategoriesTitle") }}</h3>
     </div>
     <section>
       <Loader v-if="loading" />
@@ -21,9 +21,13 @@
 <script>
 import CategoryCreate from "@/components/CategoryCreate.vue";
 import CategoryEdit from "@/components/CategoryEdit.vue";
+import { useMeta } from "vue-meta";
 
 export default {
   name: "categories-view",
+  setup() {
+    useMeta({ title: "Categories" });
+  },
   data: () => ({
     categories: [],
     loading: true,

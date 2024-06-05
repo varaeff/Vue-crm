@@ -8,6 +8,8 @@ const locales = {
 };
 
 export default function localize(key) {
-  const locale = store.getters.info?.locale || "asdasd";
-  return locales[locale][key] || `[localize error]: key ${key} not found`;
+  const locale = store.getters.info?.locale || "";
+  if (locale) {
+    return locales[locale][key] || `[localize error]: key ${key} not found`;
+  } else return `[localize error]: key ${key} not found`;
 }

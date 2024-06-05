@@ -33,11 +33,15 @@
 import paginationMixin from "@/mixins/pagination.mixin";
 import HistoryTable from "@/components/HistoryTable.vue";
 import { Chart } from "chart.js/auto";
+import { useMeta } from "vue-meta";
 
 export default {
   name: "history-view",
   mixins: [paginationMixin],
   components: { HistoryTable },
+  setup() {
+    useMeta({ title: "History" });
+  },
   data: () => ({
     loading: true,
     records: [],

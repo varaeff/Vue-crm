@@ -86,10 +86,14 @@
 import { required, minValue, minLength } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
 import { mapGetters } from "vuex";
+import { useMeta } from "vue-meta";
 
 export default {
   name: "record-view",
   setup() {
+    useMeta({
+      title: "New record",
+    });
     return { v$: useVuelidate() };
   },
   data: () => ({
